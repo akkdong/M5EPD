@@ -114,7 +114,7 @@ class M5EPD_Driver {
     static const uint8_t ROTATE_270 = IT8951_ROTATE_270;
 
    public:
-    M5EPD_Driver(int8_t spi_index = VSPI);
+    M5EPD_Driver(int8_t spi_index = VSPI, uint32_t freq = 24000000);
     ~M5EPD_Driver();
     m5epd_err_t begin(int8_t sck, int8_t mosi, int8_t miso, int8_t cs,
                       int8_t busy, int8_t rst = -1);
