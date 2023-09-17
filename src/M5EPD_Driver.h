@@ -143,6 +143,11 @@ class M5EPD_Driver {
     SPIClass *GetSPI(void) {
         return _epd_spi;
     }
+    void SetSPIFrequency(uint32_t freq) { 
+        if (freq > 24000000)
+            freq = 24000000;
+        _spi_freq = freq; 
+    }
     void SetColorReverse(bool is_reverse);
 
     m5epd_err_t Active(void);

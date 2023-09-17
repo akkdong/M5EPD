@@ -7,7 +7,7 @@ m5epd_err_t __epdret__;
         return __epdret__;        \
     }
 
-M5EPD_Driver::M5EPD_Driver(int8_t spi_index) {
+M5EPD_Driver::M5EPD_Driver(int8_t spi_index, uint32_t freq) {
     if (spi_index > 0 && spi_index < 4) {
         _epd_spi = new SPIClass(spi_index);
     } else {
@@ -19,7 +19,7 @@ M5EPD_Driver::M5EPD_Driver(int8_t spi_index) {
     _pin_mosi = -1;
     _pin_rst  = -1;
 
-    _spi_freq = 10000000;
+    _spi_freq = freq;
 
     _rotate    = IT8951_ROTATE_0;
     _direction = 1;
